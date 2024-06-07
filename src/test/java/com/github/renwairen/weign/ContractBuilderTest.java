@@ -1,49 +1,22 @@
-## Weign
+package com.github.renwairen.weign;
 
-    Weign
+import com.github.renwairen.weign.contract.ERC20;
+import com.github.renwairen.weign.contract.executor.ExecuteOption;
+import com.github.renwairen.weign.domain.ABI;
+import com.github.renwairen.weign.domain.EventData;
+import com.github.renwairen.weign.util.JsonUtil;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.web3j.protocol.core.methods.response.Log;
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
 
-## Description
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.Objects;
 
-    Read Web3 Contract Like Feign
-
-## Sample
-
-```java
 /**
- *  ERC-20 Contract, the abi file locate in /resources/abi/ERC-20.json
- */
-@Contract("/abi/ERC-20.json")
-public interface ERC20 {
-
-    String name();
-
-    @Function(name = "totalSupply")
-    BigInteger totalSupply();
-
-    Integer decimals();
-
-    BigInteger balanceOf(String address);
-
-    String symbol();
-
-    /**
-     * Withdrawal event
-     */
-    @Data
-    class Withdrawal {
-
-        private String src;
-
-        @JsonProperty("wad")
-        private BigInteger wad;
-    }
-}
-
-```
-
-```java
-/***
- * call method in ERC-20 contract and parse contract event
+ * @author zhangla
+ * @date 2024-06-07 14:46
  */
 class ContractBuilderTest {
 
@@ -77,6 +50,3 @@ class ContractBuilderTest {
         Assertions.assertEquals(new BigInteger("14706622945065745"), withdrawal.getWad());
     }
 }
-```
-
-
