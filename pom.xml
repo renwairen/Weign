@@ -22,7 +22,6 @@
         <connection>scm:git:https://github.com/renwairen/Weign.git</connection>
         <developerConnection>scm:git:https://github.com/renwairen/Weign.git</developerConnection>
         <url>https://github.com/renwairen/Weign.git</url>
-        <tag>HEAD</tag>
     </scm>
 
     <properties>
@@ -89,7 +88,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.4.0</version>
+                <version>3.7.0</version>
                 <configuration>
                     <doclint>none</doclint>
                 </configuration>
@@ -106,7 +105,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.3.1</version>
                 <configuration>
                     <attach>true</attach>
                 </configuration>
@@ -122,7 +121,7 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
+                <version>1.7.0</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
