@@ -22,4 +22,4 @@ jobs:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       - name: Publish package
         run: |
-          mvn -P release --batch-mode deploy -DskipTests
+          mvn deploy -DskipTests
