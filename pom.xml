@@ -5,10 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.renwairen</groupId>
     <artifactId>weign</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 
     <name>Weign</name>
     <description>Write Web3 Api Like Feign</description>
+    <url>https://github.com/renwairen/Weign</url>
 
     <licenses>
         <license>

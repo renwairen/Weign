@@ -9,7 +9,16 @@ import org.web3j.protocol.http.HttpService;
  */
 public abstract class Constant {
 
-    public static final String PROVIDER_URL = "https://eth-mainnet.g.alchemy.com/v2/NxkUAJJIkPja9g47jhak-Azr745_cqBS";
+    public static final String WEB_3_URL = "WEB_3_URL";
+    
+    public static final Web3j WEB_3_J;
 
-    public static final Web3j WEB_3_J = Web3j.build(new HttpService(PROVIDER_URL));
+    static {
+        String url = System.getenv(WEB_3_URL);
+        if (url != null && !url.isEmpty()) {
+            WEB_3_J = Web3j.build(new HttpService(url));
+        } else {
+            WEB_3_J = null;
+        }
+    }
 }

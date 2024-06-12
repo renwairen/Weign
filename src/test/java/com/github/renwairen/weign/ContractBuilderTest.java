@@ -7,6 +7,7 @@ import com.github.renwairen.weign.domain.EventData;
 import com.github.renwairen.weign.util.JsonUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.web3j.protocol.core.methods.response.Log;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 
@@ -18,6 +19,7 @@ import java.util.Objects;
  * @author zhangla
  * @date 2024-06-07 14:46
  */
+@EnabledIfEnvironmentVariable(named = Constant.WEB_3_URL, matches = "http*")
 class ContractBuilderTest {
 
     /**

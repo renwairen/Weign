@@ -8,6 +8,15 @@
 
 ## Sample
 
+```xml
+
+<dependency>
+    <groupId>io.github.renwairen</groupId>
+    <artifactId>weign</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+
 ```java
 /**
  *  ERC-20 Contract, the abi file locate in /resources/abi/ERC-20.json
