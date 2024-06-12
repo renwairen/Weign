@@ -3,6 +3,7 @@ on: workflow_dispatch
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: Maven # Maven 环境变量配置了对应密钥信息
     steps:
       - uses: actions/checkout@v4
       - name: Set up Maven Central Repository
