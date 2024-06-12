@@ -6,7 +6,6 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -25,36 +24,36 @@ public abstract class JsonUtil {
 
     static {
         // 16进制数据转换
-        DeserializationProblemHandler problemHandler =
-                new DeserializationProblemHandler() {
-                    @Override
-                    public Object handleWeirdStringValue(
-                            DeserializationContext ctxt,
-                            Class<?> targetType,
-                            String valueToConvert,
-                            String failureMsg)
-                            throws IOException {
-                        if (StringUtil.startsWith(valueToConvert, "0x")) {
-                            valueToConvert = valueToConvert.substring(2);
-                            BigInteger value = new BigInteger(valueToConvert, 16);
-                            if (BigInteger.class == targetType) {
-                                return value;
-                            } else if (Long.class == targetType) {
-                                return Long.valueOf(value.longValue());
-                            } else if (Integer.class == targetType) {
-                                return Integer.valueOf(value.intValue());
-                            }
-                        }
-                        return super.handleWeirdStringValue(ctxt, targetType, valueToConvert, failureMsg);
-                    }
-                };
+//        DeserializationProblemHandler problemHandler =
+//                new DeserializationProblemHandler() {
+//                    @Override
+//                    public Object handleWeirdStringValue(
+//                            DeserializationContext ctxt,
+//                            Class<?> targetType,
+//                            String valueToConvert,
+//                            String failureMsg)
+//                            throws IOException {
+//                        if (StringUtil.startsWith(valueToConvert, "0x")) {
+//                            valueToConvert = valueToConvert.substring(2);
+//                            BigInteger value = new BigInteger(valueToConvert, 16);
+//                            if (BigInteger.class == targetType) {
+//                                return value;
+//                            } else if (Long.class == targetType) {
+//                                return Long.valueOf(value.longValue());
+//                            } else if (Integer.class == targetType) {
+//                                return Integer.valueOf(value.intValue());
+//                            }
+//                        }
+//                        return super.handleWeirdStringValue(ctxt, targetType, valueToConvert, failureMsg);
+//                    }
+//                };
         OBJECT_MAPPER =
                 JsonMapper.builder()
                         .serializationInclusion(JsonInclude.Include.NON_NULL)
                         .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
                         .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                         .configure(JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN, true)
-                        .addHandler(problemHandler)
+                        //.addHandler(problemHandler)
                         .build();
     }
 

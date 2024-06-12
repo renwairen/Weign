@@ -4,7 +4,8 @@
 
 ## Description
 
-    Read Web3 Contract Like Feign
+    Read Web3 Contract Like Feign    
+    The project make it easier to access the contract
 
 ## Sample
 
