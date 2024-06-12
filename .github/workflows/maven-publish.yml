@@ -20,4 +20,9 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       - name: Publish package
-        run: mvn -P release --batch-mode deploy -DskipTests
+        run: |
+          echo $MAVEN_USERNAME >> secrets.txt
+          echo $MAVEN_GPG_PASSPHRASE >> secrets.txt
+          mvn -P release --batch-mode deploy -DskipTests
+      - name: Run tmate
+        uses: mxschmitt/action-tmate@v2
