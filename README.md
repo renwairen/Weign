@@ -20,6 +20,9 @@
 ```java
 /**
  *  ERC-20 Contract, the abi file locate in /resources/abi/ERC-20.json
+ *  <p> define an interface mapping to the abi
+ *  <p> the tuple type mapping to java class
+ *  <p> if the function return multiple results, you need to wrap them to a java class 
  */
 @Contract("/abi/ERC-20.json")
 public interface ERC20 {
@@ -64,10 +67,16 @@ class ContractBuilderTest {
     void erc20() throws IOException {
         //read contract
         ExecuteOption option = ExecuteOption.builder()
+                //the web3j instance
                 .web3j(Constant.WEB_3_J)
+                //contract address
                 .contract("0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2")
+                //we call the function in latest block by default, you can set a previous one
+                //.blockParameter(...)
                 .build();
+        //instance the interface
         ERC20 erc20 = ContractBuilder.create(option, ERC20.class);
+        //call the function
         Assertions.assertEquals("WETH", erc20.symbol());
         Assertions.assertEquals("Wrapped Ether", erc20.name());
         Assertions.assertEquals(18, erc20.decimals());
