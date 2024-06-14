@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.renwairen</groupId>
     <artifactId>weign</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 
     <name>Weign</name>
     <description>Write Web3 Api Like Feign</description>
