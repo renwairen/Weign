@@ -5,7 +5,8 @@
 ## Description
 
     Read Web3 Contract Like Feign    
-    The project make it easier to access the contract
+    The project make it easier to access the contract    
+    像使用Feign一样调用Eth合约方法
 
 ## Sample
 
@@ -14,7 +15,7 @@
 <dependency>
     <groupId>io.github.renwairen</groupId>
     <artifactId>weign</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 </dependency>
 ```
 
